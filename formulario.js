@@ -6,11 +6,6 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
         var formulario = document.querySelector('#form-adiciona');
 
-        var nome = formulario.nome.value;
-        var peso = formulario.peso.value;
-        var altura = formulario.altura.value;
-        var gordura = formulario.gordura.value;
-
         console.log(formulario.altura.value);
         console.log(nome);
         console.log(peso);
@@ -33,11 +28,13 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
         pesoTd.textContent = peso;
         alturaTd.textContent = altura;
         gorduraTd.textContent = gordura;
+        imcTd.textContent = calculeIMC(peso,altura);
 
         pacienteTr.appendChild(nomeTd);
         pacienteTr.appendChild(pesoTd);
         pacienteTr.appendChild(alturaTd);
         pacienteTr.appendChild(gorduraTd);
+        pacienteTr.appendChild(imcTd);
 
         var tabela = document.querySelector("#tabela-pacientes");
         tabela.appendChild(pacienteTr);
@@ -46,3 +43,17 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
     }
 
 );
+function dadosPacientesFormulario(){
+ 
+    //objeto paciente
+     var paciente = {
+     nome: formulario.nome.value,
+     peso: formulario.peso.value,
+     altura: formulario.altura.value,
+     gordura: formulario.gordura.value,
+     IMC: calculeIMC (formulario.peso.value,  formulario.altura.value,)
+
+     }
+
+     return paciente;
+}
